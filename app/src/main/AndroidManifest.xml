@@ -9,7 +9,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Kandy"></activity>
+        <activity android:name=".FeedbackActivity"></activity>
+        <activity android:name=".Kandy" />
         <activity android:name=".Galle" />
         <activity android:name=".Colombo" />
         <activity android:name=".Matara" />
