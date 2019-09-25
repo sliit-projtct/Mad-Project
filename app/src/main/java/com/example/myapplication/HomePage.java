@@ -5,7 +5,6 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.view.View.OnClickListener;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.Button;
@@ -18,7 +17,7 @@ public class HomePage extends AppCompatActivity{
 
 
 
-    Button rent,pay,login;
+    Button rent,pay,feedback;
     ImageView imageView2;
     TextView textView;
     Animation fromtopbottom;
@@ -31,7 +30,7 @@ public class HomePage extends AppCompatActivity{
 
         rent=(Button)findViewById(R.id.rent);
         pay=(Button)findViewById(R.id.pay);
-        login=(Button)findViewById(R.id.login);
+        feedback=(Button)findViewById(R.id.feedback);
         textView=(TextView)findViewById(R.id.textView);
         imageView2=(ImageView) findViewById(R.id.imageView2);
 
@@ -40,7 +39,7 @@ public class HomePage extends AppCompatActivity{
         textView.startAnimation(fromtopbottom);
         rent.startAnimation(fromtopbottom);
         pay.startAnimation(fromtopbottom);
-        login.startAnimation(fromtopbottom);
+        feedback.startAnimation(fromtopbottom);
 
 
 
@@ -69,6 +68,18 @@ public class HomePage extends AppCompatActivity{
 
 
                 Intent a = new Intent( HomePage.this, MainActivity.class);
+                a.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
+                startActivity(a);
+            }
+        });
+
+        //Feedback
+        feedback.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick (View view){
+
+
+                Intent a = new Intent( HomePage.this, FeedbackActivity.class);
                 a.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
                 startActivity(a);
             }
