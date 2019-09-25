@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/bg5"
     tools:context=".FeedbackActivity">
 
     <Button
@@ -22,7 +23,7 @@
         app:layout_constraintHorizontal_bias="0.112"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.624" />
+        app:layout_constraintVertical_bias="0.662" />
 
     <Button
         android:id="@+id/btnShow"
@@ -35,7 +36,7 @@
         app:layout_constraintHorizontal_bias="0.576"
         app:layout_constraintStart_toEndOf="@+id/btnSend"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.621" />
+        app:layout_constraintVertical_bias="0.658" />
 
     <Button
         android:id="@+id/btnUpdate"
@@ -62,7 +63,7 @@
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toEndOf="@+id/btnUpdate"
         app:layout_constraintTop_toBottomOf="@+id/editFbId"
-        app:layout_constraintVertical_bias="0.44" />
+        app:layout_constraintVertical_bias="0.486" />
 
     <EditText
         android:id="@+id/editName"
@@ -71,7 +72,7 @@
         android:layout_marginStart="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginBottom="8dp"
-        android:background="@color/colorPrimary"
+        android:background="@color/colorPrimaryDark"
         android:ems="10"
         android:hint="Type Your Name Here"
         android:inputType="textPersonName"
@@ -89,7 +90,7 @@
         android:layout_height="199dp"
         android:layout_marginStart="8dp"
         android:layout_marginEnd="8dp"
-        android:background="@color/colorPrimary"
+        android:background="@color/colorPrimaryDark"
         android:ems="10"
         android:gravity="start|top"
         android:hint="Type Your FeedBack Here"
@@ -107,7 +108,7 @@
         android:layout_width="286dp"
         android:layout_height="42dp"
         android:layout_marginStart="60dp"
-        android:layout_marginTop="60dp"
+        android:layout_marginTop="28dp"
         android:background="#D9EECF"
         android:ems="10"
         android:hint="ID"
