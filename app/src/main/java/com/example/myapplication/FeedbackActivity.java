@@ -23,6 +23,7 @@ public class FeedbackActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_feedback);
         myDb = new DatabaseHelper(this);
+
         editFbID=findViewById(R.id.editFbId);
         editName=findViewById(R.id.editName);
         editFeedback=findViewById(R.id.editFeedback);

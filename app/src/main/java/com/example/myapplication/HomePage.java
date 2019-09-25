@@ -13,6 +13,10 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 public class HomePage extends AppCompatActivity{
+    TextView Loguser;
+
+
+
 
     Button rent,pay,login;
     ImageView imageView2;
@@ -37,6 +41,27 @@ public class HomePage extends AppCompatActivity{
         rent.startAnimation(fromtopbottom);
         pay.startAnimation(fromtopbottom);
         login.startAnimation(fromtopbottom);
+
+
+
+        //Chanaka******************************
+
+        Loguser= findViewById(R.id.txtlogedUser);
+
+        Intent intent = getIntent();
+        String LoggedUser = intent.getExtras().getString("email");
+
+
+        Loguser.setText("User : "+LoggedUser);
+
+        //****************************************************
+
+
+
+
+
+
+
 
         rent.setOnClickListener(new View.OnClickListener() {
             @Override

@@ -10,7 +10,7 @@ import androidx.annotation.Nullable;
 
 public class DatabaseHelper extends SQLiteOpenHelper {
 
-    private static final String DATABASE_NAME = "RentHouse.db";
+    private static final String DATABASE_NAME = "HouseRent.db";
     private static final String TABLE_NAME ="Reservation";
     private static final String COL_1 ="Rno";
     private static final String COL_2 ="Name";
@@ -28,7 +28,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
 
 
-    public DatabaseHelper(@Nullable Context context) {
+    public DatabaseHelper(Context context) {
         super(context, DATABASE_NAME, null, 1);
 
     }
@@ -38,6 +38,10 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
         sqLiteDatabase.execSQL(" create table " + TABLE_NAME + " (Rno INTEGER PRIMARY KEY AUTOINCREMENT , Name TEXT , City TEXT , HouseNo INTEGER , Duration INTEGER  ) ");
         sqLiteDatabase.execSQL("CREATE TABLE " + TABLE_NAME_FB + "(ID INTEGER PRIMARY KEY AUTOINCREMENT, NAME TEXT, FEEDBACK TEXT)");
+
+        //CHANAKA***********************
+        sqLiteDatabase.execSQL("CREATE TABLE user(email text  primary key,password text)");
+        //***********************************************
     }
 
     @Override
@@ -45,6 +49,10 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
         sqLiteDatabase.execSQL("DROP TABLE IF EXISTS " + TABLE_NAME);
         sqLiteDatabase.execSQL("DROP TABLE IF EXISTS "+ TABLE_NAME_FB);
+
+        //chanaka*******************************
+        sqLiteDatabase.execSQL("DROP TABLE IF EXISTS user");
+        //***********************************************
 
         onCreate(sqLiteDatabase);
     }
@@ -150,6 +158,54 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
 
     }
+
+    //#######################CHANAKA Implementions##############//
+
+    public boolean insert(String email,String password){
+
+        SQLiteDatabase db = getReadableDatabase();
+        ContentValues contentValues = new ContentValues();
+        contentValues.put("email",email);
+        contentValues.put("password",password);
+        long ins = db.insert("user", null,contentValues);
+        if(ins == -1)
+            return false;
+        else
+            return  true;
+
+
+    }
+
+    //checking email if exists;
+    public boolean chkemail(String email){
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor cursor = db.rawQuery("SELECT * FROM user WHERE email=?",new String[]{email});
+        if(cursor.getCount()>0) return  false;
+        else return  true;
+
+    }
+
+    //checking the email and password ;
+
+    public Boolean emailpassword(String email,String password){
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor cursor = db.rawQuery("SELECT * FROM user WHERE email=? and password=?",new String[]{email,password});
+
+        if(cursor.getCount()>0) return true;
+        else return false;
+
+
+    }
+
+    //#######################END OF CHANAKA Implementions##############//
+
+
+
+
+
+
+
+
 
 
 }
