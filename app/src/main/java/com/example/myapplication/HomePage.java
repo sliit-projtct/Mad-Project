@@ -53,7 +53,7 @@ public class HomePage extends AppCompatActivity{
 
         Loguser.setText("User : "+LoggedUser);
 
-        //****************************************************
+        //******************************************************
 
 
 
