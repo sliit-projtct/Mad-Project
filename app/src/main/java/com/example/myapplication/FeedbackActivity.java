@@ -35,6 +35,8 @@ public class FeedbackActivity extends AppCompatActivity {
         updateFeedback();
         deleteFeedback();
 
+        //test
+
 
 //        final EditText editName=(EditText)findViewById(R.id.editName);
 //        final EditText editFeedback=(EditText)findViewById(R.id.editFeedback);

@@ -14,8 +14,9 @@
         <activity android:name=".Galle" />
         <activity android:name=".Colombo" />
         <activity android:name=".Matara" />
-        <activity android:name=".HomePage" />
-        <activity android:name=".MainActivity">
+        <activity android:name=".MainActivity"/>
+        <activity android:name=".HomePage" >
+
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
