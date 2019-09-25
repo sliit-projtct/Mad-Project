@@ -18,6 +18,15 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     private static final String COL_4 ="HouseNo";
     private static final String COL_5 ="Duration";
 
+    //Suneth
+
+    public static final String TABLE_NAME_FB="feedback_table";
+    public static final String COLUMN_FB1="ID";
+    public static final String COLUMN_FB2="NAME";
+    public static final String COLUMN_FB3="FEEDBACK";
+
+
+
 
     public DatabaseHelper(@Nullable Context context) {
         super(context, DATABASE_NAME, null, 1);
@@ -28,12 +37,14 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     public void onCreate(SQLiteDatabase sqLiteDatabase) {
 
         sqLiteDatabase.execSQL(" create table " + TABLE_NAME + " (Rno INTEGER PRIMARY KEY AUTOINCREMENT , Name TEXT , City TEXT , HouseNo INTEGER , Duration INTEGER  ) ");
+        sqLiteDatabase.execSQL("CREATE TABLE " + TABLE_NAME_FB + "(ID INTEGER PRIMARY KEY AUTOINCREMENT, NAME TEXT, FEEDBACK TEXT)");
     }
 
     @Override
     public void onUpgrade(SQLiteDatabase sqLiteDatabase, int i, int i1) {
 
         sqLiteDatabase.execSQL("DROP TABLE IF EXISTS " + TABLE_NAME);
+        sqLiteDatabase.execSQL("DROP TABLE IF EXISTS "+ TABLE_NAME_FB);
 
         onCreate(sqLiteDatabase);
     }
@@ -58,6 +69,20 @@ public class DatabaseHelper extends SQLiteOpenHelper {
              return true;
          }
     }
+    //Feedback Insert
+
+    public boolean sendFeedback(String name, String feedback){
+        SQLiteDatabase sqLiteDatabase=this.getWritableDatabase();
+        ContentValues contentValues=new ContentValues();
+        contentValues.put(COLUMN_FB2, name);
+        contentValues.put(COLUMN_FB3, feedback);
+        long results=sqLiteDatabase.insert(TABLE_NAME_FB, null, contentValues);
+        if (results==-1)
+            return false;
+        else
+            return true;
+
+    }
 
     public Cursor getAllData(){
 
@@ -65,7 +90,12 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         Cursor res = sqLiteDatabase.rawQuery("select * from "+ TABLE_NAME,null);
         return res;
     }
-
+    //suneth get fb
+    public Cursor getAllFeedback(){
+        SQLiteDatabase sqLiteDatabase=this.getWritableDatabase();
+        Cursor res = sqLiteDatabase.rawQuery("SELECT * FROM " + TABLE_NAME_FB, null);
+        return res;
+    }
 
 
     public boolean updateData(String rno,String name ,String city ,String hNo ,String duration ){
@@ -85,6 +115,18 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         return true;
     }
 
+    //Suneth Update Fb
+    public boolean updateFeedback(String id, String name, String feedback){
+        SQLiteDatabase sqLiteDatabase = this.getWritableDatabase();
+        ContentValues contentValues = new ContentValues();
+        contentValues.put(COLUMN_FB1, id);
+        contentValues.put(COLUMN_FB2, name);
+        contentValues.put(COLUMN_FB3, feedback);
+        sqLiteDatabase.update(TABLE_NAME_FB, contentValues, "ID=?", new String[] {id});
+        return true;
+
+    }
+
     public boolean deleteData(String rno,String name ,String city ,String hNo ,String duration ){
 
         SQLiteDatabase sqLiteDatabase=this.getReadableDatabase();
@@ -101,4 +143,13 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
         return true;
     }
+    //SUneth FB Delete
+    public Integer deleteFeedback(String id){
+        SQLiteDatabase sqLiteDatabase=this.getWritableDatabase();
+        return sqLiteDatabase.delete(TABLE_NAME_FB, "ID = ?", new String[] {id});
+
+
+    }
+
+
 }
