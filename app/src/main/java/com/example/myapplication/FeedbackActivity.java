@@ -36,34 +36,6 @@ public class FeedbackActivity extends AppCompatActivity {
         updateFeedback();
         deleteFeedback();
 
-        //test
-
-
-//        final EditText editName=(EditText)findViewById(R.id.editName);
-//        final EditText editFeedback=(EditText)findViewById(R.id.editFeedback);
-//
-//        Button buttonSend=(Button)findViewById(R.id.btnSend);
-//
-//
-//        buttonSend.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//
-//                final String Name=editName.getText().toString();
-//                if (editName.getText().toString().equals("")){
-//                    editName.setError("Mandatory Field");
-//                }
-//                else if(!Name.matches("[a-zA-Z]+")){
-//                    editName.requestFocus();
-//                    editName.setError("Please Enter Alphabetic Characters Only");
-//                }
-//                else if (editFeedback.getText().toString().equals("")){
-//                    editFeedback.setError("Mandatory Field");
-//                }
-//
-//
-//            }
-//        });
     }
     private void clearControls(){
         editName.setText("");
