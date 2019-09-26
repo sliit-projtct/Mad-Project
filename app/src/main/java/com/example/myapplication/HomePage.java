@@ -45,7 +45,7 @@ public class HomePage extends AppCompatActivity{
 
         //Chanaka******************************
 
-        Loguser= findViewById(R.id.txtlogedUser);
+      //  Loguser= findViewById(R.id.txtlogedUser);
 
         Intent intent = getIntent();
         String LoggedUser = intent.getExtras().getString("email");
