@@ -37,7 +37,7 @@
         android:layout_width="157dp"
         android:layout_height="34dp"
         android:layout_marginStart="140dp"
-        android:text="No of Room:1-10"
+        android:text="No of Rooms:1-10"
         android:textAlignment="center"
         android:textSize="18sp"
         app:layout_constraintStart_toStartOf="parent"
